@@ -7,7 +7,7 @@ export default new Vuex.Store({
   state: {
     isDisplayForm : false,
     tasks : [],
-    editTask : '',
+    editTask : {},
   },
   mutations: {
     toggleForm(state){
@@ -32,7 +32,7 @@ export default new Vuex.Store({
     editTask(state,editTask){
       state.editTask = editTask;
       state.isDisplayForm = true;
-      console.log(state.editTask);
+      // console.log(state.editTask);
     }
   },
   actions: {

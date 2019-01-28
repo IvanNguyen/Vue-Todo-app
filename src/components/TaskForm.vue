@@ -44,17 +44,30 @@ export default {
               id: '',
               name: '',
               status: true
-          }    
+          },
+          a: {}  
       }
   },
   computed: {
       editTask(){
+          this.a = this.$store.state.editTask;
           return this.$store.state.editTask;
       }
+  },
+  beforeMount() {
+    this.editTask;
+    console.log(this.a);
+    this.newTask.id = this.editTask.id;
+    this.newTask.name = this.editTask.name;
+    this.newTask.status = this.editTask.status;
+  },
+  beforeUpdate() {
+    console.log('akak');
   },
   methods: {
       closeForm(){
           this.$store.commit('toggleForm');
+          console.log(this.editTask.status);
       },
       clearForm(){
           this.newTask.id = this.newTask.name = '';
